@@ -8,6 +8,7 @@ const app  = express();
 const api  = require('./routes/api');
 const port = 3000;
 
+// The config.database object contains the credentials for connecting to the remote mLab database
 mongoose.connect(config.database);
 
 mongoose.connection.on('connected', () => {
