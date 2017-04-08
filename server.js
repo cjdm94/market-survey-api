@@ -1,11 +1,22 @@
 const express    = require('express');
 const mongoose   = require('mongoose');
 const bodyParser = require('body-parser');
-const path = require('path');
+const path       = require('path');
+const config     = require('./config/database');
 
 const app  = express();
 const api  = require('./routes/api');
 const port = 3000;
+
+mongoose.connect(config.database);
+
+mongoose.connection.on('connected', () => {
+	console.log('Connected to database '+config.database);
+});
+
+mongoose.connection.on('error', (err) => {
+	console.log('Database error: '+err);
+});
 
 // All requests to /api/* will be mapped to the routes/api file, which contains api-specific routes
 app.use('/api', api);
@@ -22,4 +33,4 @@ app.listen(port, () => {
 
 app.get('/', (res, req) => {
 	res.render('index');
-})
+});
