@@ -5,7 +5,7 @@ const Survey = require('../models/surveys');
 function handleResult(res, err, surveys) {
 	if(!err) {
 		if(surveys.length < 1) {
-			res.send(404);
+			res.sendStatus(404);
 		} else {
 			res.json(surveys);
 		}
@@ -54,8 +54,8 @@ router.get('/surveys/year/:year', (req, res, next) => {
 });
 
 // Multi-parameter filtering
-router.get('', (req, res, next) => {
-	const queryObject = req.params;
+router.get('/surveys/search', (req, res, next) => {
+	const queryObject = req.query; // '/surveys/search?sector=sports' => {sector: 'sports'}
 	Survey.filterSurveys(queryObject, (err, surveys) => {
 		handleResult(res, err, surveys);
 	});
