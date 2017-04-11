@@ -10,7 +10,7 @@ function handleResult(res, err, surveys) {
 			res.json(surveys);
 		}
 	} else {
-		throw err;
+		res.sendStatus(500);
 	}
 }
 
@@ -53,12 +53,17 @@ router.get('/surveys/year/:year', (req, res, next) => {
 	});
 });
 
-// Multi-parameter filtering
+// Filtered search using multiple parameters
 router.get('/surveys/search', (req, res, next) => {
-	const queryObject = req.query; // '/surveys/search?sector=sports' => {sector: 'sports'}
-	Survey.filterSurveys(queryObject, (err, surveys) => {
-		handleResult(res, err, surveys);
-	});
+	const queryObject = req.query; // '/surveys/search?sector=sports' => req.query = {sector: 'sports'
+	// If there is are no queries, redirect to /surveys/all
+	if(req.originalUrl == '/api/surveys/search') {
+		res.redirect('/api/surveys/all');
+	} else {
+		Survey.filterSurveys(queryObject, (err, surveys) => {
+			handleResult(res, err, surveys);
+		});
+	}
 });
 
 module.exports = router;
