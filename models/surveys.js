@@ -5,16 +5,16 @@ const SurveySchema = mongoose.Schema({
 	sector: {
 		type: String
 	},
-	targetAgeGroup: {
+	ageGroup: {
 		type: String
 	},
-	countrySurveyed: {
+	country: {
 		type: String
 	},
-	yearConducted: {
+	year: {
 		type: String
 	},
-	resultsUrl: {
+	url: {
 		type: String
 	}
 });
@@ -30,13 +30,17 @@ module.exports.getSurveysBySector = function(sector, callback) {
 }
 
 module.exports.getSurveysByAgeGroup = function(ageGroup, callback) {
-	Survey.find({'targetAgeGroup': ageGroup}, callback);
+	Survey.find({'ageGroup': ageGroup}, callback);
 }
 
 module.exports.getSurveysByCountry = function(country, callback) {
-	Survey.find({'countrySurveyed': country}, callback);
+	Survey.find({'country': country}, callback);
 }
 
 module.exports.getSurveysByYear = function(year, callback) {
-	Survey.find({'yearConducted': year}, callback);
+	Survey.find({'year': year}, callback);
+}
+
+module.exports.filterSurveys = function(queryObject, callback) {
+	Survey.find(queryObject, callback);
 }
