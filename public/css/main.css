@@ -1,0 +1,73 @@
+body {
+    padding-top: 100px;
+		padding-bottom: 50px;
+}
+
+.navbar {
+	background-color: #222;
+}
+
+.logo {
+	height: 26px;
+	width: 136.6px;
+	margin-bottom: 4px;
+}
+
+.welcome {
+	padding-left: 20px;
+}
+
+.title-row {
+	margin-bottom: 50px;
+}
+
+.section {
+	margin-top: 30px;
+	margin-left: 30px;
+}
+
+.heading {
+	color: #009dfe;
+}
+
+.subheading {
+	margin-top: 20px;
+}
+
+.route-box {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 15px;
+	background-color: #F7F7F7;
+	color: slategray;
+	border: 1px solid #ddd;
+}
+
+.route-highlight {
+	color: #009dfe;
+}
+
+.json {
+	margin-top: 10px;
+}
+
+.note-box {
+	margin-top: 10px;
+	margin-bottom: 5px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 10px;
+	background-color: #F7F7F7;
+	color: slategray;
+	border: 1px solid #ddd;
+}
+
+.note {
+	font-size: 13px;
+}
+
+.main-content {
+	padding-right: 20px;
+}

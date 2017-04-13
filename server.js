@@ -32,6 +32,6 @@ app.listen(port, () => {
 	console.log('Server listening on port '+port);
 });
 
-app.get('/', (res, req) => {
+app.get('/', (req, res, next) => {
 	res.render('index');
 });

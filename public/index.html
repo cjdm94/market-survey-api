@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
@@ -7,24 +6,93 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Caravelo - Market Surveys</title>
 		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+		integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+		<link rel="stylesheet" href="css/main.css">
 		</head>
 		<body>
 			<div class="container">
-				<div class="row justify-content-center">
-					<div class="col-md-4 col-md-offset-2">
-						<h3 class="text-center">Request form</h3>
+				<nav class="navbar fixed-top navbar-inverse bg-inverse">
+					<a class="navbar-brand" href=""><img class="logo" src="img/logo.png"></a>
+				</nav>
+				<div class="row justify-content-center title-row">
+					<div class="col-xs-10">
+						<h1 class="welcome">Welcome to Caravelo's market survey API!</h1>
 					</div>
-					<div class="col-md-4">
-						<h3 class="text-center">Response panel</h3>
+				</div>
+				<div class="row justify-content-left main-content">
+					<div class="col-xs-10 col-lg-8">
+						<h2>1. Surveys</h2>
+						<div class="row section">
+							<h3 class="heading">1.1. Endpoints</h3>
+							<p>Our endpoints allow you to make calls to our API by various parameters, so you can find the surveys that are relevant to you.</p>
+							<div class="wrapper">
+								<h6 class="subheading">Available parameters</h6>
+								<ul>
+									<li><i>sector</i> - the sector/industry upon which the survey is based</li>
+									<li><i>ageGroup</i> - the survey's target age group</li>
+									<li><i>country</i> - the country upon which the survey was conducted</li>
+									<li><i>year</i> - the year in which the survey was conducted</li>
+								</ul>
+							</div>
+						</div>
+						<div class="row section">
+							<h4 class="heading">1.1.1 Single-parameter calls</h4>
+							<div class="wrapper">
+								<h6 class="subheading">Query format:</h6>
+								<div class="route-box">
+									<p>http://localhost:3000/api/surveys/<span class="route-highlight">{parameter}</span>/<span class="route-highlight">{parameter-value}</span></p>
+								</div>
+							</div>
+							<div class="wrapper">
+								<h6 class="subheading">Example request:</h6>
+								<div class="route-box">
+									<p>http://localhost:3000/api/surveys/<span class="route-highlight">sector</span>/<span class="route-highlight">sportswear</span></p>
+								</div>
+							</div>
+							<div class="wrapper">
+								<h6 class="subheading">Example response:</h6>
+								<div class="response">
+									<img class="json" src="/img/sportswear.PNG">
+								</div>
+							</div>
+						</div>
+						<div class="row section">
+							<h4 class="heading" >1.1.2 Multi-parameter calls</h4>
+							<p>Our multi-parameter calls allow you to filter your query by more than one parameter. If, for example, you want to fetch all gardening surveys from 2016, make a multi-parameter call.</p>
+							<div class="wrapper">
+								<h6 class="subheading">Query format:</h6>
+								<div class="route-box">
+									<p>http://localhost:3000/api/surveys/search?<span class="route-highlight">{p1}</span>=<span class="route-highlight">{p1-value}</span>&<span class="route-highlight">{p2}</span>=<span class="route-highlight">{p2-value}</span></p>
+								</div>
+							</div>
+							<div class="wrapper">
+								<h6 class="subheading">Example request:</h6>
+								<div class="route-box">
+									<p>http://localhost:3000/api/surveys/search?<span class="route-highlight">sector</span>=<span class="route-highlight">gardening</span>&<span class="route-highlight">year</span>=<span class="route-highlight">2016</span></p>
+								</div>
+							</div>
+							<div class="wrapper">
+								<h6 class="subheading">Example response:</h6>
+								<div class="response">
+									<img class="json" src="/img/gardening.PNG">
+								</div>
+							</div>
+							<div class="wrapper">
+								<h6 class="subheading">Notes</h6>
+								<div class="note-box">
+									<p class="note">You can append any number of available parameters to your query, in any order.</span></p>
+								</div>
+								<div class="note-box">
+									<p class="note">For multi-word parameter values - where, for example, you want to view all surveys for the 'internet ads' sector - replace spaces with '%20'</p>
+								</div>
+								<div class="note-box">
+									<p class="note">All parameters and parameter values should be lower case.</p>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-			<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-			<!-- Latest compiled and minified JavaScript -->
-			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-			integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   	</body>
 </html>
