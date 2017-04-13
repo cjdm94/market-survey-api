@@ -19,4 +19,4 @@
 <p>Fetch all surveys from the database:</p>
 <code>http://localhost:3000/api/surveys/all</code>
 
-<i>For API instructions, see <code>http://localhost:3000/</code></i>
+<p><i>For API instructions, see <code>http://localhost:3000/</code></i></p>
