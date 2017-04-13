@@ -1,11 +1,11 @@
-const express    = require('express');
-const mongoose   = require('mongoose');
+const express = require('express');
+const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const path       = require('path');
-const config     = require('./config/database');
+const path = require('path');
+const config = require('./config/database');
 
-const app  = express();
-const api  = require('./routes/api');
+const app = express();
+const api = require('./routes/api');
 const port = 3000;
 
 // The config.database object contains the credentials for connecting to the remote mLab database
